@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: appme-pod
+
+spec:
+  containers:
+  - name: appme-container
+    image: ganjivasu/java-me:v1
+    ports:
+    - containerPort: 3000
