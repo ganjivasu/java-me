@@ -37,10 +37,10 @@ spec:
                   name: app-config
                   key: APP_MESSAGE
 
-          env:
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: app-secret
-                  key: DB_PASSWORD        
+#          env:
+#            - name: DB_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: app-secret
+#                  key: DB_PASSWORD        
 
