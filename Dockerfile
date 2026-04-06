@@ -1,8 +1,9 @@
 # Stage 1: Build
 FROM node:18 as builder
 WORKDIR /app
-COPY . .
+COPY package*.json ./
 RUN npm install
+COPY . .
 
 # Stage 2: Production
 FROM node:18-alpine
