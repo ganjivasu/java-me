@@ -30,17 +30,17 @@ spec:
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 10
-#          env:
-#            - name: APP_MESSAGE
-#              valueFrom:
-#                configMapKeyRef:
-#                 name: app-config
-#                  key: APP_MESSAGE
+          env:
+            - name: APP_MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: APP_MESSAGE
 
-#          env:
-#            - name: DB_PASSWORD
-#              valueFrom:
-#                secretKeyRef:
-#                  name: app-secret
-#                  key: DB_PASSWORD        
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: DB_PASSWORD        
 
