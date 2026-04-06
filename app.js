@@ -1,9 +1,22 @@
-const http = require('http');
+const express = require('express');
+const client = require('prom-client');
 
-const server = http.createServer((req, res) => {
-  res.end(process.env.APP_MESSAGE || 'Default Message');
+const app = express();
+
+// collect default metrics
+client.collectDefaultMetrics();
+
+// main route
+app.get('/', (req, res) => {
+  res.send(process.env.APP_MESSAGE || 'Hello DevOps 🚀');
 });
 
-server.listen(3000, () => {
-  console.log('Server running on port 3000');
+// metrics route
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', client.register.contentType);
+  res.end(await client.register.metrics());
+});
+
+app.listen(3000, () => {
+  console.log('App running on port 3000');
 });
